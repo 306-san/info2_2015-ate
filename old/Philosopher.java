@@ -24,6 +24,7 @@ class Philosopher extends Thread {
 
   // message
   String msg;
+  DiningPhilosophers frame = new DiningPhilosophers();
 
   Philosopher(ChopStick c1, ChopStick c2) {
     // IDの付与
@@ -47,7 +48,7 @@ class Philosopher extends Thread {
 
   public void run () {
     for (int i = 0; i < 5; i++) {
-      if(i == 0 && number == 0){
+      if(i == 6 && number == 6){
         DiningPhilosophers frame = new DiningPhilosophers();
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,6 +114,7 @@ class Philosopher extends Thread {
   // 食事をするメソッド
   void eat() {
     if (hasLowerStick && hasHigherStick) {
+      frame.set_eat_icon(number);
       printAnEvent("***eating***");
 
       // ランダム時間だけ待機

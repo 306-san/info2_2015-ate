@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.util.*;
-public class DiningPhilosophers extends JFrame{
+public class DiningPhilosophers extends JFrame implements Runnable{
 
   static final int N = 5;
 
@@ -15,14 +15,18 @@ public class DiningPhilosophers extends JFrame{
 
   static Philosopher[] philosophers;
 
+  ImageIcon icon4;
+  JLabel label4;
+  ImageIcon eat_icon;
+
   public static void main(String[] args) {
-    // DiningPhilosophers frame = new DiningPhilosophers();
-    //
-    // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    // frame.setBounds(10, 10, 1010, 1010);
-    // frame.setTitle("title");
-    // frame.setVisible(true);
-    //getContentPane().add(p, BorderLayout.CENTER);
+    DiningPhilosophers frame = new DiningPhilosophers();
+
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.setBounds(10, 10, 1010, 1010);
+    frame.setTitle("title");
+    frame.setVisible(true);
+  //  getContentPane().add(p, BorderLayout.CENTER);
 
      chopsticks = new ChopStick[N];
 
@@ -106,5 +110,11 @@ public class DiningPhilosophers extends JFrame{
 
     getContentPane().add(p, BorderLayout.CENTER);
   }
-
+  public void set_eat_icon(int n){
+    ImageIcon eat_icon = new ImageIcon("./data/img02.png");
+    System.out.printf("\ndebug:n=%d\n",n);
+    if(n==4){
+      label4.setIcon(eat_icon);
+    }
+  }
 }
